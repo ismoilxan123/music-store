@@ -333,6 +333,20 @@
   box-shadow: rgba(248, 155, 93, 0.35) 0px 5px 15px;
 }
 
+/* PRODUCTS page [pds] */
+
+.pds__hero {
+  text-align: center;
+  padding-top: 98px;
+  padding-bottom: 98px;
+}
+.pds__hero h1 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px; /* 110% */
+  text-transform: uppercase;
+}
 /* responsive */
 
 @media screen and (max-width: 1130px) {
