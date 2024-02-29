@@ -1,5 +1,3 @@
-import ButtonOrange from "../components/ButtonOrange";
-
 const Hero = () => {
   return (
     <div className="main__hero">
@@ -11,11 +9,11 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <ButtonOrange />
+          <button className="btnorg">See Product</button>
         </div>
         <div>
           <img
-            // width="708"
+            className="hero__img"
             src="https://s3-alpha-sig.figma.com/img/f84f/9d20/8c3eec8bfe1a8f3b55088c0fade7baa5?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gfUd06781Uwdq70z62CvfmdvRrfvbMHeKyOPVQh~VCaBQKWgzvgY2Bjr0k4YAgXh5jzqpEbv5wO~4StK-H3C~~9tsV8DTFYJ29d~SXMWhKiNvAt4OAeinDiaLGt6SruyRoJCYT1G8ppVBdtzqy8h3yicn6c~OLW97l2MbuisNqlxTOCoFhyQQadVmbZwXDaW-OSfmpmxciV-a5OdS4EH7wtE4ckxQOHUCBuz~IWzK0VGYKp5QS50MjA0uaxuZA6qixy1krc53USoFtgTvk~2U4C02MP0MFofyGI3PSoU53YEJNyjPFUOP99D5t5CN895nSjcTSbHc-666E7cdeujXQ__"
             alt=""
           />
