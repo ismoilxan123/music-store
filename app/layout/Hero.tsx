@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Hero = () => {
   return (
     <div className="main__hero">
@@ -9,7 +11,9 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <button className="btnorg">See Product</button>
+          <Link href={"/products/headphones/4"}>
+            <button className="btnorg">See Product</button>
+          </Link>
         </div>
         <div>
           <img

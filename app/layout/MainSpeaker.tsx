@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import mainSpeaker from "../public/main-speaker.png";
+import Link from "next/link";
 
 const MainSpeaker = () => {
   return (
@@ -16,7 +17,9 @@ const MainSpeaker = () => {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <button className="btnblack">See Product</button>
+        <Link href={"/products/speakers/6"}>
+          <button className="btnblack">See Product</button>
+        </Link>
       </div>
     </div>
   );

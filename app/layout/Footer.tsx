@@ -3,17 +3,29 @@ import logo from "../public/logo.svg";
 import facebook from "../public/facebook.svg";
 import twitter from "../public/twitter.svg";
 import instagram from "../public/instagram.svg";
+import Link from "next/link";
 const Footer = () => {
   return (
     <div className="main__footer">
       <div className="container footer">
         <div className="footer__navigation">
-          <Image src={logo} alt="logo" />
+          <Link href={"/"}>
+            {" "}
+            <Image src={logo} alt="logo" />
+          </Link>
           <div className="f__navigation">
-            <h2>home</h2>
-            <h2>headphones</h2>
-            <h2>speakers</h2>
-            <h2>earphones</h2>
+            <h2>
+              <Link href={"/"}>home </Link>
+            </h2>
+            <h2>
+              <Link href={"/products/headphones"}>headphones</Link>
+            </h2>
+            <h2>
+              <Link href={"/products/speakers"}>speakers</Link>
+            </h2>
+            <h2>
+              <Link href={"/products/earphones"}>earphones</Link>
+            </h2>
           </div>
         </div>
         <div className="footer__title">

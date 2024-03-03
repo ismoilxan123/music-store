@@ -1,5 +1,6 @@
 import Image from "next/image";
 import shopIcon from "../public/shop-icon.svg";
+import Link from "next/link";
 
 interface MyComponentProps {
   title: string;
@@ -10,9 +11,11 @@ const CategoryBox: React.FC<MyComponentProps> = ({ img, title }) => {
     <div className="category__box">
       <Image className="categoy__img" src={img} alt="headphone" />
       <h2>{title}</h2>
-      <h3 className="category__shop">
-        SHOP <Image src={shopIcon} alt="shop-icon" />
-      </h3>
+      <Link href={`products/${title}`}>
+        <h3 className="category__shop">
+          SHOP <Image src={shopIcon} alt="shop-icon" />
+        </h3>
+      </Link>
     </div>
   );
 };
