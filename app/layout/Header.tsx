@@ -31,10 +31,9 @@ const Header = () => {
   const removeAll = () => {
     contex?.setCart([]);
   };
-  console.log(contex?.cart.length);
 
   return (
-    <div className="main__header">
+    <div className="main__header ">
       <div className="container header">
         <div className="flex items-center gap-10">
           {hamburgerShow ? (
@@ -102,7 +101,11 @@ const Header = () => {
             <h1>TOTAL</h1>
             <h2>$ {cartResult?.totalSumm}</h2>
           </div>
-          <button className="btnorg w-full">checkout</button>
+          <Link href={`${contex?.cart.length ? "/checkout" : ""}`}>
+            <button className="btnorg w-full">
+              {contex?.cart.length ? "checkout" : "no product"}
+            </button>
+          </Link>
         </div>
       </div>
       <Image src={line} alt="line" />

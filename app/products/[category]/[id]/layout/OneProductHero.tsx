@@ -26,8 +26,26 @@ const OneProductHero = ({ newArr }: { newArr: oneProductType[] }) => {
     );
   };
 
-  const decrement = (id: number) => {};
+  const decrement = (id: number) => {
+    let cart = context?.cart.slice() || [];
+    const count = cart?.find((product) => product.id === id)?.count || 0;
+    if (count > 1) {
+      cart = cart?.map((product) =>
+        product.id === id ? { ...product, count: product.count - 1 } : product
+      );
+    } else {
+      cart = cart?.filter((product) => product.id !== id);
+    }
+    context?.setCart(cart);
+  };
 
+  const getCount = (id: number) => {
+    const product = context?.cart.find((product) => product.id === id);
+    if (product) {
+      return product.count;
+    }
+    return 1;
+  };
   return (
     <div className="container">
       {newArr.map((n, i) => (
@@ -52,13 +70,11 @@ const OneProductHero = ({ newArr }: { newArr: oneProductType[] }) => {
               <p>{n.description}</p>
               <h3>$ {n.price}</h3>
               <div className="one__product--btns">
-                {/* <div className="one__product--counter">
+                <div className="one__product--counter">
                   <span onClick={() => decrement(n.id)}>-</span>
-                  {`${context?.cart.map((product) =>
-                    product.id === n.id ? product.count : 1
-                  )}`}
+                  {getCount(n.id)}
                   <span onClick={() => increment(n.id)}>+</span>
-                </div> */}
+                </div>
                 <button onClick={() => addCart(n.id)} className="btnorg">
                   ADD TO CART
                 </button>

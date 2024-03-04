@@ -1,8 +1,25 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import Inputs from "./components/Inputs";
 import OptionInput from "./components/OptionInput";
+import CheckoutSavadcha from "./components/CheckoutSavadcha";
+import { cartContext } from "../context/cartContext";
 
 const page = () => {
+  const context = useContext(cartContext);
+  console.log(context?.cart);
+
+  const cartResult = context?.cart.reduce(
+    (acc, el) => {
+      acc.totalCount += el.count;
+      acc.totalSumm += el.count * el.price;
+      return acc;
+    },
+    {
+      totalCount: 0,
+      totalSumm: 0,
+    }
+  );
   return (
     <div className="container ">
       <div className="checkout">
@@ -27,13 +44,40 @@ const page = () => {
           <h2>payment details</h2>
           <div className="payment">
             <h4 className="pay__method">Payment Method</h4>
-            <OptionInput />
-            <OptionInput />
+            <OptionInput name={"e-Money"} />
+            <OptionInput name={"Cash on Delivery"} />
             <Inputs name={"e-Money Number"} plcholder={"238521993"} />
             <Inputs name={"e-Money PIN"} plcholder={"6891"} />
           </div>
         </div>
-        <div className="checkout__savadcha ">right</div>
+        <div className="checkout__savadcha h-max ">
+          <h1>summary</h1>
+          {context?.cart.map((product) => (
+            <CheckoutSavadcha key={product.id} {...product} />
+          ))}
+
+          <div>
+            <div className="checkout__savadcha--info">
+              <div className="checkout__savadcha--title">TOTAL</div>
+              <div className="checkout__savadcha--numbers">
+                $ {cartResult?.totalSumm}
+              </div>
+            </div>
+            <div className="checkout__savadcha--info">
+              <div className="checkout__savadcha--title">SHIPPING</div>
+              <div className="checkout__savadcha--numbers">$ 50</div>
+            </div>
+            <div className="checkout__savadcha--info">
+              <div className="checkout__savadcha--title">VAT (INCLUDED)</div>
+              <div className="checkout__savadcha--numbers">$ 1,079</div>
+            </div>
+            <div className="checkout__savadcha--info">
+              <div className="checkout__savadcha--title">GRAND TOTAL</div>
+              <div className="checkout__savadcha--numbers ]">$ 5,446</div>
+            </div>
+            <button className="btnorg w-full mt-6">CONTINUE & PAY</button>
+          </div>
+        </div>
       </div>
     </div>
   );

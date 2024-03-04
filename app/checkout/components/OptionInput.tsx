@@ -1,12 +1,12 @@
 import React from "react";
 
-const OptionInput = () => {
+const OptionInput = ({ name }: { name: string }) => {
   return (
     <div className="payment__input">
       <div className="payment__input--box">
         <div className="payment__input--box__inside"></div>
-        <h5>e-Money</h5>
       </div>
+      <h5>{name}</h5>
     </div>
   );
 };
