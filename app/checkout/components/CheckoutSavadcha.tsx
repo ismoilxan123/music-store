@@ -13,7 +13,13 @@ const CheckoutSavadcha: FC<ISavadchaProduct> = ({
   return (
     <div className="checkout__oneproduct">
       <div className="rounded-lg bg-[#f1f1f1]">
-        <Image width="100" height="80" src={image.desktop} alt={name} />
+        <Image
+          className="rounded-lg"
+          width="100"
+          height="80"
+          src={image.desktop}
+          alt={name}
+        />
       </div>
       <div className="checkout__product">
         <h2>{name.slice(0, 13)}</h2>

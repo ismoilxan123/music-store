@@ -66,16 +66,14 @@
 }
 .hamburger__category {
   position: absolute;
-  top: 58px;
+  top: 40px;
   left: 50px;
-  right: 50px;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  border-radius: 8px;
-  background: #f1f1f1;
-  padding: 10px;
   gap: 8px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 24px 80px 24px 24px;
 }
 .hamburger__category h2 {
   color: #000;
@@ -203,8 +201,8 @@
 .savadcha__products--number {
   position: absolute;
   top: -18px;
-  right: -25px;
-  padding: 2px 7px;
+  right: -15px;
+  padding: 2px 8px;
   border-radius: 45%;
   background-color: #e7681e;
   font-weight: bold;
@@ -729,6 +727,7 @@ form input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  margin-bottom: 24px;
 }
 .pay__method {
   color: #000;
@@ -771,11 +770,30 @@ form input {
 .payment__input--box__inside:active {
   background-color: #e7681e;
 }
+.payment__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.pay__cash {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 32px;
+}
+.pay__cash p {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  opacity: 0.5;
+}
 /* checkout savadcha */
 .checkout__savadcha {
   padding: 32px;
   border-radius: 8px;
   background: #f1f1f1;
+  position: relative;
 }
 .checkout__savadcha h1 {
   color: #000;
@@ -829,6 +847,66 @@ form input {
   font-weight: 700;
   text-transform: uppercase;
 }
+/* last page */
+.last__page {
+  border-radius: 8px;
+  background: #fff;
+  position: absolute;
+  top: 0px;
+  right: 300px;
+  width: 540px;
+  padding: 48px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.last__page h6 {
+  margin-top: 33px;
+  margin-bottom: 24px;
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 1.143px;
+  text-transform: uppercase;
+}
+.last__page h4 {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  opacity: 0.5;
+  margin-bottom: 33px;
+}
+.last__page--total {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  margin-bottom: 48px;
+}
+.last__page--total__products {
+  border-radius: 8px 0px 0px 8px;
+  background: #f1f1f1;
+  padding: 24px 24px 24px 1px;
+}
+.last__page--total__grant {
+  height: 100%;
+  border-radius: 0px 8px 8px 0px;
+  background: #000;
+  padding: 40px;
+  margin-bottom: 40px;
+}
+.last__page--total__grant h1 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+.last__page--total__grant h2 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 /* responsive */
 
 @media screen and (max-width: 1130px) {
@@ -872,6 +950,13 @@ form input {
     max-width: 450px;
     max-height: 330px;
   }
+  /* last product */
+  .last__page {
+    position: absolute;
+    top: 0px;
+    right: 200px;
+    width: 540px;
+  }
 }
 @media screen and (max-width: 935px) {
   .container {
@@ -907,6 +992,13 @@ form input {
     gap: 30px;
     margin-top: 80px;
     margin-bottom: 140px;
+  }
+  /* last product */
+  .last__page {
+    position: absolute;
+    top: 0px;
+    right: 150px;
+    width: 540px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -1032,6 +1124,13 @@ form input {
   }
   .one__product--feature p {
     max-width: 100%;
+  }
+  /* last product */
+  .last__page {
+    position: absolute;
+    top: 0px;
+    right: 70px;
+    width: 500px;
   }
 }
 
@@ -1218,6 +1317,9 @@ form input {
     right: 15px;
   }
   /* checkout */
+  .checkout__form {
+    padding: 24px;
+  }
   .billing__inputs {
     display: grid;
     grid-template-columns: 1fr;
@@ -1241,6 +1343,34 @@ form input {
   .pay__method {
     grid-row: 1;
   }
+  .payment__footer {
+    display: flex;
+    flex-direction: column;
+  }
+  /* last page */
+  .last__page {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 327px;
+  }
+  .last__page--total {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 2px;
+  }
+  .last__page--total__products {
+    border-radius: 8px 8px 0px 0px;
+    background: #f1f1f1;
+    padding: 24px 24px 24px 1px;
+  }
+  .last__page--total__grant {
+    height: 80%;
+    border-radius: 0px 0px 8px 8px;
+    background: #000;
+    padding: 15px 25px;
+    margin-bottom: 40px;
+  }
 }
 @media screen and (max-width: 400px) {
   .category__product--img {
@@ -1248,6 +1378,12 @@ form input {
   }
   .category__product--only--img {
     max-width: 200px;
+  }
+  .hamburger__category {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    padding: 24px;
   }
   .savadcha__none {
     width: 300px;

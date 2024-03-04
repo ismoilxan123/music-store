@@ -1,8 +1,8 @@
 const Inputs = ({ name, plcholder }: { name: string; plcholder: string }) => {
   return (
-    <form>
+    <form className="w-full">
       <h3>{name}</h3>
-      <input type="text" placeholder={plcholder} required />
+      <input className="w-full" type="text" placeholder={plcholder} required />
     </form>
   );
 };
