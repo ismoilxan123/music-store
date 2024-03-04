@@ -32,8 +32,8 @@ const Savadcha: FC<ISavadchaProduct> = ({ id, image, name, price, count }) => {
         <Image width="36" height="40" src={image.desktop} alt="headphone" />
       </div>
       <div className="savadcha__product--info">
-        <h1>{name.slice(0, 12)}</h1>
-        <h2>$ {price}</h2>
+        <h1>{name.slice(0, 13)}</h1>
+        <h2>$ {price * count}</h2>
       </div>
       <div className=" savadcha__counter flex gap-3 p-[7px_15px] bg-[#F1F1F1]">
         <span onClick={() => decrement(id)}>-</span>

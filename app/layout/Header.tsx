@@ -10,7 +10,7 @@ import Savadcha from "../components/Savadcha";
 import cancelbtnl from "../public/cancel-btn.svg";
 import HamburgerCategory from "../components/HamburgerCategory";
 import { cartContext } from "../context/cartContext";
-import { ISavadchaProduct, oneProductType } from "../lib/types";
+import { ISavadchaProduct } from "../lib/types";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -28,6 +28,10 @@ const Header = () => {
       totalSumm: 0,
     }
   );
+  const removeAll = () => {
+    contex?.setCart([]);
+  };
+  console.log(contex?.cart.length);
 
   return (
     <div className="main__header">
@@ -88,8 +92,8 @@ const Header = () => {
         </div>
         <div className={`savadcha__${show ? "show" : "none"}`}>
           <div className="savadcha__titel flex justify-between">
-            <h1>cart (3)</h1>
-            <h2>Remove all</h2>
+            <h1>cart {contex?.cart.length} </h1>
+            <h2 onClick={removeAll}>Remove all</h2>
           </div>
           {contex?.cart.map((product: ISavadchaProduct) => (
             <Savadcha key={product.id} {...product} />
