@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../public/logo.svg";
 import box from "../public/box.svg";
@@ -8,12 +8,27 @@ import hamburger from "../public/hamburger.svg";
 import Link from "next/link";
 import Savadcha from "../components/Savadcha";
 import cancelbtnl from "../public/cancel-btn.svg";
-import Category from "./Category";
 import HamburgerCategory from "../components/HamburgerCategory";
+import { cartContext } from "../context/cartContext";
+import { ISavadchaProduct, oneProductType } from "../lib/types";
 
 const Header = () => {
   const [show, setShow] = useState(false);
   const [hamburgerShow, setHamburgerShow] = useState(false);
+  const contex = useContext(cartContext);
+
+  const cartResult = contex?.cart.reduce(
+    (acc, el) => {
+      acc.totalCount += el.count;
+      acc.totalSumm += el.count * el.price;
+      return acc;
+    },
+    {
+      totalCount: 0,
+      totalSumm: 0,
+    }
+  );
+
   return (
     <div className="main__header">
       <div className="container header">
@@ -61,10 +76,30 @@ const Header = () => {
               alt="cancelbtn"
             />
           ) : (
-            <Image className="cursor-pointer" src={box} alt="box" />
+            <div className="savadcha__box">
+              <Image className="cursor-pointer" src={box} alt="box" />
+              {contex?.cart.length! > 0 && (
+                <div className="savadcha__products--number text-white">
+                  {cartResult?.totalCount}
+                </div>
+              )}
+            </div>
           )}
         </div>
-        <Savadcha show={show} />
+        <div className={`savadcha__${show ? "show" : "none"}`}>
+          <div className="savadcha__titel flex justify-between">
+            <h1>cart (3)</h1>
+            <h2>Remove all</h2>
+          </div>
+          {contex?.cart.map((product: ISavadchaProduct) => (
+            <Savadcha key={product.id} {...product} />
+          ))}
+          <div className="savadcha__total">
+            <h1>TOTAL</h1>
+            <h2>$ {cartResult?.totalSumm}</h2>
+          </div>
+          <button className="btnorg w-full">checkout</button>
+        </div>
       </div>
       <Image src={line} alt="line" />
     </div>

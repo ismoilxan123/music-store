@@ -1,8 +1,33 @@
+"use client";
 import Image from "next/image";
-import headphone from "../../../../public/one-product-headphone.png";
-import { oneProductType } from "@/app/lib/types";
+import { ISavadchaProduct, oneProductType } from "@/app/lib/types";
 import Link from "next/link";
+import { useContext } from "react";
+import { cartContext } from "@/app/context/cartContext";
+
 const OneProductHero = ({ newArr }: { newArr: oneProductType[] }) => {
+  const context = useContext(cartContext);
+  const newObj = newArr[0];
+  const addCart = (id: number) => {
+    let newOne = context?.cart.some((product) => product.id === id);
+    if (!newOne) {
+      context?.setCart((prev: ISavadchaProduct[]) => [
+        ...prev,
+        { ...newObj, count: 1 },
+      ]);
+    }
+  };
+
+  const increment = (id: number) => {
+    context?.setCart((prev) =>
+      prev.map((product) =>
+        product.id === id ? { ...product, count: product.count + 1 } : product
+      )
+    );
+  };
+
+  const decrement = (id: number) => {};
+
   return (
     <div className="container">
       {newArr.map((n, i) => (
@@ -27,10 +52,16 @@ const OneProductHero = ({ newArr }: { newArr: oneProductType[] }) => {
               <p>{n.description}</p>
               <h3>$ {n.price}</h3>
               <div className="one__product--btns">
-                <div className="one__product--counter">
-                  <span>-</span>1<span>+</span>
-                </div>
-                <button className="btnorg">ADD TO CART</button>
+                {/* <div className="one__product--counter">
+                  <span onClick={() => decrement(n.id)}>-</span>
+                  {`${context?.cart.map((product) =>
+                    product.id === n.id ? product.count : 1
+                  )}`}
+                  <span onClick={() => increment(n.id)}>+</span>
+                </div> */}
+                <button onClick={() => addCart(n.id)} className="btnorg">
+                  ADD TO CART
+                </button>
               </div>
             </div>
           </div>

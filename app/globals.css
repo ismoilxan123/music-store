@@ -197,6 +197,18 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+.savadcha__box {
+  position: relative;
+}
+.savadcha__products--number {
+  position: absolute;
+  top: -18px;
+  right: -25px;
+  padding: 2px 7px;
+  border-radius: 45%;
+  background-color: #e7681e;
+  font-weight: bold;
+}
 
 /* hero */
 .main__hero {

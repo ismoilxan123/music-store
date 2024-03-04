@@ -14,6 +14,14 @@ export interface oneProductType {
   others: Other[];
 }
 
+export interface ISavadchaProduct {
+  id: number;
+  name: string;
+  price: number;
+  image: Image;
+  count: number;
+}
+
 export interface Image {
   mobile: string;
   tablet: string;
