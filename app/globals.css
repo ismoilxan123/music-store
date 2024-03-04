@@ -773,7 +773,8 @@ form input {
 .payment__footer {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 16px;
 }
 .pay__cash {
   display: flex;
