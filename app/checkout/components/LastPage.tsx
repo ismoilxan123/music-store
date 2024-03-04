@@ -7,8 +7,6 @@ import { cartContext } from "@/app/context/cartContext";
 import Link from "next/link";
 const LastPage = ({ grantSumm }: { grantSumm: number }) => {
   const context = useContext(cartContext);
-  console.log(context);
-
   return (
     <div className="last__page">
       <Image src={icon} alt="icon" />

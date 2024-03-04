@@ -10,8 +10,6 @@ const Page = () => {
   const [payClick, setPayClick] = useState(false);
   const [lastOpen, setLastOpen] = useState(false);
   const context = useContext(cartContext);
-  console.log(context?.cart);
-
   const cartResult = context?.cart.reduce(
     (acc, el) => {
       acc.totalCount += el.count;
