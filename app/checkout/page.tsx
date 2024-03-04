@@ -5,7 +5,7 @@ import OptionInput from "./components/OptionInput";
 import CheckoutSavadcha from "./components/CheckoutSavadcha";
 import { cartContext } from "../context/cartContext";
 
-const page = () => {
+const Page = () => {
   const context = useContext(cartContext);
   console.log(context?.cart);
 
@@ -83,4 +83,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
